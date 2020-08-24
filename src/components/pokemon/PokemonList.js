@@ -11,13 +11,15 @@ export default class PokemonList extends Component {
   async componentDidMount() {
     const res = await axios.get(this.state.url);
     this.setState({ pokemon: res.data["results"] });
+    console.log(res.data["results"]);
+    console.log(res.data.next);
   }
 
   render() {
     return (
       <>
         {this.state.pokemon ? (
-          <div>
+          <div className="row">
             {this.state.pokemon.map((pokemon) => (
               <PokemonCard
                 key={pokemon.name}
