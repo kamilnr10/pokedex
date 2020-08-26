@@ -24,8 +24,8 @@ const TYPE_COLORS = {
 };
 
 const PokemonImage = styled.img`
-  width: 5em;
-  height: 5em;
+  width: 8em;
+  height: 8em;
 `;
 
 export default class Pokemon extends Component {
@@ -225,7 +225,7 @@ export default class Pokemon extends Component {
             </div>
             <div className="card-body">
               <div className="row align-items-center">
-                <div className="col-md-3">
+                <div className="col-md-3 d-flex justify-content-center">
                   <PokemonImage src={imageUrl} alt="" />
                 </div>
                 <div className="col-md-9">
