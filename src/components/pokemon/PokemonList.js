@@ -6,13 +6,25 @@ export default class PokemonList extends Component {
   state = {
     url: "https://pokeapi.co/api/v2/pokemon/",
     pokemon: null,
+    next: "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20",
+    previous: null,
   };
 
   async componentDidMount() {
     const res = await axios.get(this.state.url);
-    this.setState({ pokemon: res.data["results"] });
+    this.setState({
+      pokemon: res.data["results"],
+    });
+
     console.log(res.data["results"]);
     console.log(res.data.next);
+  }
+
+  nextPage() {
+    const res = axios.get(this.state.next);
+    this.setState({
+      pokemon: res.data["results"],
+    });
   }
 
   render() {
